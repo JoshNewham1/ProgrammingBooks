@@ -1,0 +1,13 @@
+{
+  "name": "chapter-2",
+  "version": "1.0.0",
+  "description": "Code for Chapter 2 of Programming TypeScript",
+  "main": "index.js",
+  "author": "Josh Newham",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^15.3.0",
+    "ts-lint": "^4.5.1",
+    "typescript": "^4.2.4"
+  }
+}

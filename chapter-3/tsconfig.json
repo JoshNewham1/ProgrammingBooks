@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "lib": ["es2020"], // Version of JS that is assumed to be met by TSC
+    "module": "commonjs", // Module system that the TSC should compile to
+    "outDir": "dist", // Where the generated JavaScript files will go
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2020" // Version of JS that the code will be compiled to
+  },
+  "include": ["src"] // Where TypeScript files are located
+}

@@ -57,6 +57,10 @@ const howSumMemoised = (targetSum, numbers, memo = {}) => {
   return null;
 };
 
+// Complexity memoised:
+// Time: O(mn*m) - multiple of m is due to the array copy when spreading (line 31)
+// Space: O(m^2) - m keys with arrays of m values
+
 // console.log(howSum(7, [2, 3]));
 // console.log(howSum(7, [5, 3, 4, 7]));
 // console.log(howSum(7, [2, 4]));

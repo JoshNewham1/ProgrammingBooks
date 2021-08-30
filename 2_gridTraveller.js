@@ -4,7 +4,7 @@
 // In how many ways can you travel to the goal on an m * n grid?
 
 // Base cases: m = 0 or n = 0 -> 0 ways to travel
-// m = 1 or n = 1 -> 1 way to travel
+// m = 1 and n = 1 -> 1 way to travel
 
 //                                                       Visualised:
 //                                                         t(2,3)
@@ -16,3 +16,18 @@
 //                                        ALL BASE     t(0,2) t(1,1) ...
 
 // The solution is simply the sum of these return values
+
+const gridTraveller = (m, n) => {
+  // Base cases
+  if (m === 1 && n === 1) return 1;
+  if (m === 0 || n === 0) return 0;
+  // Sum all combinations of down and right:
+  //          Move downwards           Move rightwards
+  return gridTraveller(m - 1, n) + gridTraveller(m, n - 1);
+};
+
+console.log(gridTraveller(1, 1));
+console.log(gridTraveller(2, 3));
+console.log(gridTraveller(3, 2));
+console.log(gridTraveller(3, 3));
+console.log(gridTraveller(18, 18));

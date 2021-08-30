@@ -14,5 +14,25 @@
 
 // Base cases:
 // Any node has 0 sum -> true
-// Sum > 0 -> false
-// Sum < 0 -> halt
+// Sum < 0 -> false (and carried up the tree)
+
+const canSum = (targetSum, numbers) => {
+  if (targetSum === 0) return true;
+  if (targetSum < 0) return false;
+
+  // Try subtracting all numbers from total
+  for (let num of numbers) {
+    const remainder = targetSum - num;
+    if (canSum(remainder, numbers)) {
+      return true;
+    }
+  }
+  // Only impossible to generate target sum AFTER trying all possibilities
+  return false;
+};
+
+console.log(canSum(7, [2, 3]));
+console.log(canSum(7, [5, 3, 4, 7]));
+console.log(canSum(7, [2, 4]));
+console.log(canSum(8, [2, 3, 5]));
+console.log(canSum(300, [7, 14]));

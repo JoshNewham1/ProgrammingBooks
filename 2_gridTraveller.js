@@ -26,11 +26,28 @@ const gridTraveller = (m, n) => {
   return gridTraveller(m - 1, n) + gridTraveller(m, n - 1);
 };
 
-console.log(gridTraveller(1, 1));
-console.log(gridTraveller(2, 3));
-console.log(gridTraveller(3, 2));
-console.log(gridTraveller(3, 3));
-console.log(gridTraveller(18, 18)); // very slow!
-
 // The height of the tree produced is m + n (as only m OR n can be decreased at a time)
 // Therefore, time complexity of O(2^(m+n)) and space complexity of O(m+n)
+
+// To optimise this, we can memoise and use the fact that traveller(a, b) = traveller(b, a)
+const travellerMemoised = (m, n, memo = {}) => {
+  const key = m + "," + n;
+  if (key in memo) return memo[key];
+  if (m === 1 && n === 1) return 1;
+  if (m === 0 || n === 0) return 0;
+  memo[key] =
+    travellerMemoised(m - 1, n, memo) + travellerMemoised(m, n - 1, memo);
+  return memo[key];
+};
+
+// console.log(gridTraveller(1, 1));
+// console.log(gridTraveller(2, 3));
+// console.log(gridTraveller(3, 2));
+// console.log(gridTraveller(3, 3));
+// console.log(gridTraveller(18, 18)); // very slow!
+
+console.log(travellerMemoised(1, 1));
+console.log(travellerMemoised(2, 3));
+console.log(travellerMemoised(3, 2));
+console.log(travellerMemoised(3, 3));
+console.log(travellerMemoised(18, 18));

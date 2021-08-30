@@ -35,11 +35,36 @@ const howSum = (targetSum, numbers) => {
   return null;
 };
 
-// Time complexity: let m = target sum, n = numbers.length
+// Time complexity brute-force: let m = target sum, n = numbers.length
 // O(n^m * m) - multiple of m is due to the array copy when spreading (line 31)
 
-console.log(howSum(7, [2, 3]));
-console.log(howSum(7, [5, 3, 4, 7]));
-console.log(howSum(7, [2, 4]));
-console.log(howSum(8, [2, 3, 5]));
-console.log(howSum(300, [7, 14])); // very slow!
+const howSumMemoised = (targetSum, numbers, memo = {}) => {
+  if (targetSum in memo) return memo[targetSum];
+  if (targetSum === 0) return [];
+  if (targetSum < 0) return null;
+
+  for (let num of numbers) {
+    const remainder = targetSum - num;
+    const remainderResult = howSumMemoised(remainder, numbers, memo);
+    if (remainderResult !== null) {
+      // If there is at least one way to generate sum, do an early return
+      memo[targetSum] = [...remainderResult, num];
+      return memo[targetSum];
+    }
+  }
+
+  memo[targetSum] = null;
+  return null;
+};
+
+// console.log(howSum(7, [2, 3]));
+// console.log(howSum(7, [5, 3, 4, 7]));
+// console.log(howSum(7, [2, 4]));
+// console.log(howSum(8, [2, 3, 5]));
+// console.log(howSum(300, [7, 14])); // very slow!
+
+console.log(howSumMemoised(7, [2, 3]));
+console.log(howSumMemoised(7, [5, 3, 4, 7]));
+console.log(howSumMemoised(7, [2, 4]));
+console.log(howSumMemoised(8, [2, 3, 5]));
+console.log(howSumMemoised(300, [7, 14]));

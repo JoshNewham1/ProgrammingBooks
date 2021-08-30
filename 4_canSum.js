@@ -54,6 +54,9 @@ const canSumMemoised = (targetSum, numbers, memo = {}) => {
   return false;
 };
 
+// Memoised solution has a time complexity of O(mn)
+// as each possible pair of m and n are only explored once with no duplicates
+
 // console.log(canSum(7, [2, 3]));
 // console.log(canSum(7, [5, 3, 4, 7]));
 // console.log(canSum(7, [2, 4]));

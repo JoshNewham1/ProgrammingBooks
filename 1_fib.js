@@ -14,7 +14,21 @@ const fib = (n) => {
   return fib(n - 1) + fib(n - 2);
 };
 
-console.log(fib(6));
-console.log(fib(7));
-console.log(fib(8));
-console.log(fib(50)); // very slow! (about a quadrillion steps)
+// Memoisation - storing results from overlapping subproblems to avoid re-evaluation
+// Will use a JS object with keys = function args and value = return value
+const fibMemoised = (n, memo = {}) => {
+  if (n in memo) return memo[n];
+  if (n <= 2) return 1;
+  memo[n] = fibMemoised(n - 1, memo) + fibMemoised(n - 2, memo); // Save result if it doesn't exist
+  return memo[n];
+};
+
+// console.log(fib(6));
+// console.log(fib(7));
+// console.log(fib(8));
+// console.log(fib(50)); // very slow! (about a quadrillion steps)
+
+console.log(fibMemoised(6));
+console.log(fibMemoised(7));
+console.log(fibMemoised(8));
+console.log(fibMemoised(50)); // much faster

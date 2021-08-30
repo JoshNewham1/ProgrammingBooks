@@ -6,6 +6,8 @@
 // Base cases: m = 0 or n = 0 -> 0 ways to travel
 // m = 1 and n = 1 -> 1 way to travel
 
+// Thinking of recursive problems as a tree is often the best way to start
+
 //                                                       Visualised:
 //                                                         t(2,3)
 //                                                    down        right
@@ -39,6 +41,9 @@ const travellerMemoised = (m, n, memo = {}) => {
     travellerMemoised(m - 1, n, memo) + travellerMemoised(m, n - 1, memo);
   return memo[key];
 };
+
+// The time complexity of this is now much reduced to O(mn)
+// as each possible pair of m and n are only explored once with no duplicates
 
 // console.log(gridTraveller(1, 1));
 // console.log(gridTraveller(2, 3));

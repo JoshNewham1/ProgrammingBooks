@@ -36,8 +36,32 @@ const canSum = (targetSum, numbers) => {
 // Maximum number of branches per node = n (branching factor)
 // Therefore time complexity is O(n^m)
 
-console.log(canSum(7, [2, 3]));
-console.log(canSum(7, [5, 3, 4, 7]));
-console.log(canSum(7, [2, 4]));
-console.log(canSum(8, [2, 3, 5]));
-console.log(canSum(300, [7, 14]));
+const canSumMemoised = (targetSum, numbers, memo = {}) => {
+  if (targetSum in memo) return memo[targetSum];
+  if (targetSum === 0) return true;
+  if (targetSum < 0) return false;
+
+  // Try subtracting all numbers from total
+  for (let num of numbers) {
+    const remainder = targetSum - num;
+    if (canSumMemoised(remainder, numbers, memo)) {
+      memo[targetSum] = true;
+      return true;
+    }
+  }
+  // Only impossible to generate target sum AFTER trying all possibilities
+  memo[targetSum] = false;
+  return false;
+};
+
+// console.log(canSum(7, [2, 3]));
+// console.log(canSum(7, [5, 3, 4, 7]));
+// console.log(canSum(7, [2, 4]));
+// console.log(canSum(8, [2, 3, 5]));
+// console.log(canSum(300, [7, 14])); // very slow!
+
+console.log(canSumMemoised(7, [2, 3]));
+console.log(canSumMemoised(7, [5, 3, 4, 7]));
+console.log(canSumMemoised(7, [2, 4]));
+console.log(canSumMemoised(8, [2, 3, 5]));
+console.log(canSumMemoised(300, [7, 14]));

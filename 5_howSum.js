@@ -37,6 +37,7 @@ const howSum = (targetSum, numbers) => {
 
 // Time complexity brute-force: let m = target sum, n = numbers.length
 // O(n^m * m) - multiple of m is due to the array copy when spreading (line 31)
+// Space complexity = O(m) - height of tree
 
 const howSumMemoised = (targetSum, numbers, memo = {}) => {
   if (targetSum in memo) return memo[targetSum];

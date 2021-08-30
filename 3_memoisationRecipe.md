@@ -2,6 +2,7 @@
 
 1. Make it work
    - **Visualise** the problem as a tree
+     - Encode changing arguments into nodes
      - Each edge should shrink the problem size
      - Look for patterns to optimise (e.g. repeated subtrees)
    - **Implement** the tree using recursion

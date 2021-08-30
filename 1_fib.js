@@ -23,6 +23,13 @@ const fibMemoised = (n, memo = {}) => {
   return memo[n];
 };
 
+//               fibMemoised(6)
+//               f(5)       f(4)
+//            f(4)  f(3)
+//        f(3)   f(2)
+//     f(2)  f(1)
+// Now O(n) time as only one branch is evaluated
+
 // console.log(fib(6));
 // console.log(fib(7));
 // console.log(fib(8));

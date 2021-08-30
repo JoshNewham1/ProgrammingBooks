@@ -1,10 +1,12 @@
+// Dynamic programming = decomposing a problem into smaller instances of itself with overlapping elements
+
 // Classic recursive fib - O(2^n) time as results in a binary tree of two function calls per pass
 //        fib(7)             1 node
 //    f(6)      f(5)         2 nodes
 // f(5) f(4)  f(4) f(3)      4 nodes
 // ...                       2^n nodes
 // O(n) space as stack frames are popped when base case of one branch is reached
-// Note that some of these function calls are reused further down the tree (e.g. fib(5))
+// Note that some of these function calls are reused further down the tree (e.g. fib(5)) -> overlapping subtrees
 const fib = (n) => {
   if (n <= 2) {
     return 1;

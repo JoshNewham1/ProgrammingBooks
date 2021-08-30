@@ -31,6 +31,11 @@ const canSum = (targetSum, numbers) => {
   return false;
 };
 
+// Complexity: let m = target sum, n = numbers array length
+// Maximum (theoretical) height of the tree = m -> if 1 is in numbers array
+// Maximum number of branches per node = n (branching factor)
+// Therefore time complexity is O(n^m)
+
 console.log(canSum(7, [2, 3]));
 console.log(canSum(7, [5, 3, 4, 7]));
 console.log(canSum(7, [2, 4]));

@@ -30,4 +30,7 @@ console.log(gridTraveller(1, 1));
 console.log(gridTraveller(2, 3));
 console.log(gridTraveller(3, 2));
 console.log(gridTraveller(3, 3));
-console.log(gridTraveller(18, 18));
+console.log(gridTraveller(18, 18)); // very slow!
+
+// The height of the tree produced is m + n (as only m OR n can be decreased at a time)
+// Therefore, time complexity of O(2^(m+n)) and space complexity of O(m+n)

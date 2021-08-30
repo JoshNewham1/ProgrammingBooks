@@ -35,6 +35,9 @@ const howSum = (targetSum, numbers) => {
   return null;
 };
 
+// Time complexity: let m = target sum, n = numbers.length
+// O(n^m * m) - multiple of m is due to the array copy when spreading (line 31)
+
 console.log(howSum(7, [2, 3]));
 console.log(howSum(7, [5, 3, 4, 7]));
 console.log(howSum(7, [2, 4]));

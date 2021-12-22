@@ -2,7 +2,7 @@ import json
 
 if __name__ == "__main__":
     # Add definitions to notebook JSON
-    notebook_file = open("Glossary.ipynb")
+    notebook_file = open("glossary.ipynb")
     notebook_json = json.load(notebook_file)
     
     # Loop through and get the current order
@@ -23,7 +23,7 @@ if __name__ == "__main__":
         notebook_json["cells"][i] = definitions.pop(0)
     
     # Overwrite notebook file
-    with open("Glossary.ipynb", "r+") as f:
+    with open("glossary.ipynb", "r+") as f:
         f.seek(0)
         f.write(json.dumps(notebook_json))
         f.truncate()

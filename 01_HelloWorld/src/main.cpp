@@ -3,10 +3,8 @@
 // Header files aren't compiled, they are just included in .cpp files that are compiled
 #include <iostream>
 
-void Log(const char* message) 
-{
-    std::cout << message << std::endl;
-}
+// Declaration (telling the compiler this function exists somewhere)
+void Log(const char* message);
 
 // Main function (entry point)
 // Special case that doesn't have to actually return anything (defaults to returning 0)

@@ -10,7 +10,7 @@
 				"-Werror",
 				"-std=c++14",
 				"-g",
-				"${file}",
+				"*.cpp",
 				"-o",
 				"${fileDirname}/../${fileBasenameNoExtension}.o"
 			],

@@ -1,5 +1,5 @@
-# Introduction 
-Here is the code I've written following various tutorials and books, to advance my knowledge in certain
-areas.
+# Introduction
 
-Each book / tutorial is stored in its own branch.
+Code from Cherno's introductory tutorial to C++:
+
+https://www.youtube.com/watch?v=oBt53YbR9Kk

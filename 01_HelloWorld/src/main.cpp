@@ -3,14 +3,15 @@
 // Header files aren't compiled, they are just included in .cpp files that are compiled
 #include <iostream>
 
-// Declaration (telling the compiler this function exists somewhere)
+// Declarations (telling the compiler this function exists somewhere)
 void Log(const char* message);
+int Multiply(int a, int b);
 
 // Main function (entry point)
 // Special case that doesn't have to actually return anything (defaults to returning 0)
 int main()
 {
-    // The << operator is a function that pushes "Hello World!" and cout INTO the cout function
     Log("Hello World!");
+    std::cout << Multiply(1, 2);
     std::cin.get();
 }

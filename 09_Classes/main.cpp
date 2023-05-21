@@ -6,6 +6,7 @@
 // They just help make code easier to maintain
 class Player
 {
+    // Methods and variables are private by default
 public:
     int x, y;
     int speed;

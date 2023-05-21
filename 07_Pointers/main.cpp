@@ -13,7 +13,7 @@ int main()
     LOG("");
 
     int var = 8;
-    int* varPtr = &var; // Get memory address of var (with &)
+    int* varPtr = &var; // Create a pointer from the memory address of an existing variable (with &)
     
     LOG("Address of var:");
     LOG(varPtr);
@@ -23,7 +23,7 @@ int main()
     LOG(*varPtr); // * dereferences this pointer and gets the data at varPtr
     LOG("");
     
-    *varPtr = 10;
+    *varPtr = 10; // Sets var to 10
     LOG("New value of var:");
     LOG(var);
     LOG("");

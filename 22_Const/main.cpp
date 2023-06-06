@@ -5,7 +5,7 @@ class Entity
 private:
     int m_X, m_Y;
     int* m_ptrX, *m_ptrY;
-    mutable int m_mutVar; // Can be modified in a const method
+    mutable int m_DebugCount; // Can be modified in a const method
 public:
     Entity()
     {
@@ -17,6 +17,7 @@ public:
     int GetX() const
     {
         // m_X = 2; // CAN'T change any values
+        m_DebugCount++;
         return m_X;
     }
 
@@ -31,18 +32,12 @@ public:
     {
         m_X = x;
     }
-    
-    void SetMutable(int x) const
-    {
-        m_mutVar = x;
-    }
 };
 
 void PrintEntity(const Entity& e)
 {
     // ONLY const methods can be called when an object is passed by reference
-    std::cout << "Entity: " << e.GetX() << std::endl;
-    e.SetMutable(10); // Allowed as variable is mutable
+    std::cout << "Entity: " << e.GetX() << std::endl; // GetX can change mutable variables
     // e.SetX(10); // Not allowed
 }
 

@@ -26,6 +26,7 @@ int main()
     Entity* e;
     {
         // "new" allocates on the heap
+        // and asks the OS to find x amount of contiguous bytes that we have access to (this takes time)
         Entity* entity = new Entity("Josh 2");
         e = entity;
         std::cout << entity->GetName() << std::endl;
@@ -34,4 +35,12 @@ int main()
         delete entity;
     }
     // std::cout << e->GetName() << std::endl; // Gives a seg fault as we've freed the object
+
+    int* b = new int[50]; // Allocates 200 bytes on the heap
+    Entity* e = new Entity[50]; // Allocates memory for 50 entities (malloc) AND calls constructor
+    Entity* e1 = new Entity;
+
+    delete e1; // Calls free() and destructor
+    delete[] b; // Use delete[] with arrays on the heap
+    delete[] e;
 }

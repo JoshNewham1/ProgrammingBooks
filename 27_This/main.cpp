@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-void PrintEntity(const Entity& e);
-
 class Entity
 {
 public:
@@ -11,16 +9,17 @@ public:
     
     Entity(int x, int y)
     {
-        Entity* e = this;
+        // Entity* e = this;
         
         this->x = x;
         this->y = y;
-        PrintEntity(*this);
+        
+        // PrintEntity(*this);
     }
 
     int GetX() const
     {
-        const Entity* e = this; // this has to be const in a const method
+        // const Entity* e = this; // this has to be const in a const method
 
         return x;
     }
@@ -29,4 +28,10 @@ public:
 void PrintEntity(const Entity& e)
 {
     std::cout << "Entity(" << e.x << ", " << e.y << ")" << std::endl;
+}
+
+int main()
+{
+    Entity e(10, 15);
+    PrintEntity(e);
 }
